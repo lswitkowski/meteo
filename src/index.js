@@ -8,6 +8,19 @@ function refreshWeather(response) {
 
    let cityElement = document.querySelector("#current-city");
     cityElement.innerHTML = response.data.city;
+
+    let descriptionElement = document.querySelector("#description");
+     descriptionElement.innerHTML = response.data.condition.description;
+
+      let humidityElement = document.querySelector("#humidity");
+      humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+
+      let windSpeedElement = document.querySelector("#windspeed");
+       windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
+
+       let date = new Date(response.data.time * 1000);
+        let timeElement = document.querySelector("#current-time");
+       timeElement.innerHTML = formatDate(date);
 }
 
 
@@ -16,16 +29,6 @@ function refreshWeather(response) {
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
-  let day = date.getDay();
-
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
   let days = [
     "Sunday",
     "Monday",
@@ -35,16 +38,14 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
+  let day = days[date.getDay()];
 
-  let formattedDay = days[day];
-  return `${formattedDay} ${hours}:${minutes}`;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
+  return `${day} ${hours}:${minutes}`;
 }
-
-let currentDateElement = document.querySelector("#current-date");
-let currentDate = new Date();
-currentDateElement.innerHTML = formatDate(currentDate);
-
 
 
 function searchCity(city) {
