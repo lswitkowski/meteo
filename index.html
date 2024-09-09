@@ -3,48 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>My weather application</title><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script><script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> </head>
-  <body class="roboto-regular">
-    <div class="container">
-     <header>
-        <form  id ="city-form" >
-          <input type="search"
-            placeholder="Enter a city.."
-             autocomplete="off" 
-            autofocus="on" 
-            class="search-input"
-            id ="search-input" required
-            />
+    <title>My weather application</title>
 
-          <input type="submit" class="search-button" value="Search"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
         </form>
       </header>
       <main>
         <div class="current-weather">
           <div>
-            
-            <h1 class="current-city" id="current-city">Paris</h1>
-
-
+            <h1 class="current-city" id="current-city"></h1>
             <p class="current-details">
-              <span id="calendar"> Saturday 15:32</span>, moderate rain <br />
+              <span id="current-date"></span><span id="current-time"></span>, moderate rain <br />
               Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
-            </p></div>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <span class="current-temperature-icon">☀️</span
+            ><span class="current-temperature-value">24</span
+            ><span class="current-temperature-unit">°C</span>
+          </div>
+        </div>
+      </main>
+      <footer>Coded by<a href="https://github.com/lswitkowski/" target="_blank"> Lisa W</a>, open-sourced on <a href="https://github.com/lswitkowski?tab=repositories" target="_blank">GitHub</a>, and website hosted on
+ <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 
-          <div class="current-temperature"><span class="current-temperature-icon">☀️</span><span class="current-temperature-value" id="current-temperature"> 14</span><span class="current-temperature-unit">°C</span></div>
-       </div></main>
-      <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/lswitkowski" target="_blank">Lisa W.</a> and is
-          <a href="https://github.com/lswitkowski/my-weather" target="_blank"> on GitHub</a> and
-          <a href="https://bespoke-crostata-61a481.netlify.app/" target="_blank">hosted on Netlify</a>
-        </p>
-      </footer>
-    <script src="src/index.js"></script>
+
+        </footer>
+    </div>
   </body>
+  <script src="src/index.js"></script>
 </html>
