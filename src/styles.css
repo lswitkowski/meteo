@@ -59,6 +59,7 @@ main {
 .current-city {
   font-size: 38px;
   font-weight: 900;
+  color: #34276F;
   margin: 0;
 }
 .current-details {
