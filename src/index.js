@@ -6,26 +6,26 @@ function refreshWeather(response) {
   let currentTemp = Math.round(response.data.temperature.current);
   realTemp.innerHTML = currentTemp;
 
-   let cityElement = document.querySelector("#current-city");
-    cityElement.innerHTML = response.data.city;
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = response.data.city;
 
-    let descriptionElement = document.querySelector("#description");
-     descriptionElement.innerHTML = response.data.condition.description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
 
-      let humidityElement = document.querySelector("#humidity");
-      humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
-      let windSpeedElement = document.querySelector("#windspeed");
-       windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
+  let windSpeedElement = document.querySelector("#windspeed");
+  windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
 
-       let date = new Date(response.data.time * 1000);
-        let timeElement = document.querySelector("#current-time");
-       timeElement.innerHTML = formatDate(date);
+  let date = new Date(response.data.time * 1000);
+  let timeElement = document.querySelector("#current-time");
+  console.log(timeElement);
+  timeElement.innerHTML = formatDate(date);
 
-       let iconElement = document.querySelector("#icon");
-       iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`;
 }
-
 
 
 
